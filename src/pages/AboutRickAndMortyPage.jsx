@@ -3,12 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Nav from '../components/Header/Nav';
 import Button from '../components/Header/Button';
 import headerStyles from '../components/Header/style.module.scss';
-import pageStyles from '../components/AboutRickAndMortyPage.module.scss'; // Updated import
+import pageStyles from '../components/AboutRickNMorty.module.scss'; // Updated import
+import axios from 'axios';
 
 const AboutRickAndMortyPage = () => {
-  const [episodes, setEpisodes] = useState([]);
-  const [page, setPage] = useState(1);
+  const [characters, setCharacters] = useState([]);
   const [isActive, setIsActive] = useState(false);
+
   const menu = {
     open: {
       width: "480px",
@@ -25,10 +26,32 @@ const AboutRickAndMortyPage = () => {
       transition: { duration: 0.75, delay: 0.35, type: "tween", ease: [0.76, 0, 0.24, 1] }
     }
   };
-  return (
-    <div className="rick-and-morty-page">
 
-    <div className={headerStyles.header}>
+  useEffect(() => {
+    const fetchCharacters = async () => {
+      try {
+        const characterNames = ['Rick Sanchez', 'Morty Smith', 'Summer Smith', 'Beth Smith', 'Jerry Smith'];
+        const promises = characterNames.map(name =>
+          axios.get('https://rickandmortyapi.com/api/character', {
+            params: {
+              name
+            }
+          })
+        );
+        const responses = await Promise.all(promises);
+        const charactersData = responses.map(response => response.data.results[0]);
+        setCharacters(charactersData);
+      } catch (error) {
+        console.error('Error fetching characters:', error);
+      }
+    };
+
+    fetchCharacters();
+  }, []);
+
+  return (
+    <div className={pageStyles.rickAndMortyPage}>
+      <div className={headerStyles.header}>
         <motion.div
           className={headerStyles.menu}
           variants={menu}
@@ -41,34 +64,40 @@ const AboutRickAndMortyPage = () => {
         </motion.div>
         <Button isActive={isActive} toggleMenu={() => { setIsActive(!isActive) }} />
       </div>
-      <header>
+      <header className={pageStyles.header}>
         <h1>Rick and Morty</h1>
       </header>
-      <main>
-        <section>
+      <main className={pageStyles.main}>
+        <section className={pageStyles.section}>
           <h2>Introduction</h2>
-          <p>[Introduction content goes here]</p>
+          <p>Rick and Morty is an American animated television series created by Justin Roiland and Dan Harmon. The show follows the misadventures of cynical mad scientist Rick Sanchez and his good-hearted but fretful grandson Morty Smith, who split their time between domestic life and interdimensional adventures.</p>
         </section>
-        <section>
+        <section className={pageStyles.section}>
           <h2>Plot</h2>
-          <p>[Plot summary goes here]</p>
+          <p>The series centers on the Smith family, which consists of parents Jerry and Beth, their children Summer and Morty, and Beth's father, Rick Sanchez, who lives with them as a guest. According to Justin Roiland, the family lives outside of Seattle, Washington. The adventures of Rick and Morty, however, take place across an infinite number of realities, with the characters traveling to other planets and dimensions through portals and Rick's flying saucer.</p>
         </section>
-        <section>
+        <section className={pageStyles.section}>
           <h2>Characters</h2>
-          <p>[Information about main characters]</p>
+          {characters.map((character) => (
+            <div key={character.id} className={pageStyles.character}>
+              <img src={character.image} alt={character.name} className={pageStyles.characterImage} />
+              <div className={pageStyles.characterInfo}>
+                <h3>{character.name}</h3>
+                <p>{character.status} - {character.species}</p>
+                <p>{character.gender}</p>
+              </div>
+            </div>
+          ))}
         </section>
-        <section>
+        <section className={pageStyles.section}>
           <h2>Reception</h2>
-          <p>[Reception details]</p>
+          <p>Rick and Morty has received critical acclaim for its originality, creativity, and humor. The show has been praised for its characters, cultural references, and unique blend of comedy and science fiction. It has gained a large following and has become a significant part of popular culture.</p>
         </section>
-        <section>
+        <section className={pageStyles.section}>
           <h2>References</h2>
           <p>Information sourced from <a href="https://en.wikipedia.org/wiki/Rick_and_Morty">Wikipedia</a>.</p>
         </section>
       </main>
-      <footer>
-        <p>© 2024 Rick and Morty Fan Page</p>
-      </footer>
     </div>
   );
 };

@@ -66,13 +66,6 @@ const ContactPage = () => {
           </TextDipserse>
         </div>
       </main>
-      <div className={contactStyles.contactLink}>
-        <Link href="/" passHref>
-          <div>
-            Back to Home
-          </div>
-        </Link>
-      </div>
     </div>
   );
 };

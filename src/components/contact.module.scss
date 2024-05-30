@@ -1,4 +1,4 @@
-/* CharactersList.module.scss */
+/* contact.module.scss */
 .header {
   display: flex;
   justify-content: space-between;
@@ -15,55 +15,39 @@
   overflow: hidden;
 }
 
-.main {
-  padding: 20px;
-}
-
-.body {
+.main{
+  height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
-.characterCard {
-  width: 200px;
-  border-radius: 10px;
-  margin: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s;
-  text-align: center;
-  background-color: #f9f9f9;
-  padding: 20px;
+
+.introLine{
+  display: flex;
+  font-size: 6vw;
+  justify-content: space-between;
+  text-transform: uppercase;
+  color: black;
 }
 
-.characterCard:hover {
-  transform: scale(1.05);
+.introLine:nth-of-type(5), .introLine:nth-of-type(6){
+  display: inline-flex;
+}
+.introLine:nth-of-type(6){
+  right: -40px;
+  position: relative;
 }
 
-.characterImage {
+.introLine p{
+  margin: 0px;
+}
+
+.background{
+  background-color: black;
+  position: absolute;
   width: 100%;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-.characterInfo {
-  padding: 10px;
-}
-
-.pagination {
-  margin-top: 20px;
-}
-
-.pagination button {
-  padding: 10px 20px;
-  margin: 0 5px;
-  border: none;
-  background-color: #333;
-  color: white;
-  cursor: pointer;
-}
-
-.pagination button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
 }
