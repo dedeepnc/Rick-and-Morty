@@ -1,0 +1,94 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #333;
+  color: white;
+}
+
+.menu {
+  position: absolute;
+  background: #444;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.mainContent {
+  margin-top: 80px; /* Space for the navbar */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #333;
+  }
+}
+
+.episodesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.episodeCard {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  width: calc(100% - 20px);
+  transition: all 0.3s ease-in-out;
+
+  h2 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: #24325f;
+  }
+
+  p {
+    margin: 5px 0;
+    color: #555;
+  }
+
+  &:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  @media screen and (max-width: 768px) {
+    width: calc(50% - 20px); /* Two episodes per row with 20px margin between */
+  }
+
+  @media screen and (max-width: 480px) {
+    width: calc(100% - 20px); /* One episode per row with 20px margin between */
+  }
+}
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+
+  button {
+    padding: 10px 20px;
+    background-color: #24325f;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:disabled {
+      background-color: #aaa;
+      cursor: not-allowed;
+    }
+
+    &:hover:not(:disabled) {
+      background-color: #1a243d;
+    }
+  }
+}
