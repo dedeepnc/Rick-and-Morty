@@ -10,6 +10,7 @@
     "build:scss": "sass --no-source-map src/styles/scss/main.scss:src/styles/globals.css"
   },
   "dependencies": {
+    "@analytics/google-analytics": "^1.0.7",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@mui/material": "^5.15.19",

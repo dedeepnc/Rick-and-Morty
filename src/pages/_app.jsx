@@ -1,17 +1,55 @@
 import { Inter } from 'next/font/google';
 import '../styles/globals.css';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import Script from 'next/script';
+
 
 const inter = Inter({ subsets: ['latin'] });
 
-export const metadata = {
-  title: 'Rick and Morty App',
-  description: 'An app about Rick and Morty',
-}
+const GA_MEASUREMENT_ID = 'G-WJ95KZGWL8';
 
-export default function MyApp({ Component, pageProps }) {
+const handleRouteChange = (url) => {
+  window.gtag('config', GA_MEASUREMENT_ID, {
+    page_path: url,
+  });
+};
+
+function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.events.on('routeChangeComplete', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router.events]);
+
   return (
-    <div>
+    <>
+      <Script
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+      />
+      <Script
+        id="google-analytics"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', '${GA_MEASUREMENT_ID}', {
+              page_path: window.location.pathname,
+            });
+          `,
+        }}
+      />
       <Component {...pageProps} />
-    </div>
+    </>
   );
 }
+
+export default MyApp;
+
