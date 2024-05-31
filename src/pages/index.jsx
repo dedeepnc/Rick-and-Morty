@@ -5,6 +5,7 @@ import styles from '../components/Header/style.module.scss';
 import Nav from '../components/Header/Nav';
 import blobStyles from '../components/index.module.scss'; 
 import Footer from '../components/Footer/Footer';
+import Image from 'next/image'; // Import the Image component from Next.js
 
 const menu = {
     open: {
@@ -56,10 +57,11 @@ const HomePage = () => {
                 <Button isActive={isActive} toggleMenu={() => { setIsActive(!isActive) }} />
             </div>
             <div style={containerStyle}>
-                <img
+                <Image
                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Rick_and_Morty.svg/1600px-Rick_and_Morty.svg.png"
                     alt="Rick and Morty"
-                    style={{ maxWidth: '80%', height: 'auto' }}
+                    width={950}
+                    height={350} 
                 />
             </div>
             <Footer />

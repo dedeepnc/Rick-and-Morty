@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import Nav from '../../components/Header/Nav';
 import Button from '../../components/Header/Button';
@@ -7,11 +7,12 @@ import headerStyles from '../../components/Header/style.module.scss';
 import styles from '../../components/CharacterDetailPage.module.scss';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const CharacterDetailPage = () => {
+const CharacterDetailPage = ({ character }) => {
   const router = useRouter();
   const { id } = router.query;
-  const [character, setCharacter] = useState(null);
   const [isActive, setIsActive] = useState(false);
+
+  if (!character) return <div>Loading...</div>;
 
   const menu = {
     open: {
@@ -29,17 +30,6 @@ const CharacterDetailPage = () => {
       transition: { duration: 0.75, delay: 0.35, type: "tween", ease: [0.76, 0, 0.24, 1] }
     }
   };
-
-  useEffect(() => {
-    if (id) {
-      fetch(`https://rickandmortyapi.com/api/character/${id}`)
-        .then(response => response.json())
-        .then(data => setCharacter(data))
-        .catch(error => console.error('Error fetching data:', error));
-    }
-  }, [id]);
-
-  if (!character) return <div>Loading...</div>;
 
   return (
     <div>
@@ -63,15 +53,37 @@ const CharacterDetailPage = () => {
           <p>Status: {character.status}</p>
           <p>Species: {character.species}</p>
           <p>Gender: {character.gender}</p>
-          <p>Origin: {character.origin.name}</p>
-          <p>Location: {character.location.name}</p>
+          {character.origin && <p>Origin: {character.origin.name}</p>}
+          {character.location && <p>Location: {character.location.name}</p>}
         </div>
-        <Link href="/CharactersPage" passHref legacyBehavior>
-          <a className={styles['back-link']}>Back to Characters</a>
+        <Link href="/CharactersPage" passHref>
+          <div className={styles['back-link']}>Back to Characters</div>
         </Link>
       </div>
     </div>
   );
 };
+
+export async function getServerSideProps(context) {
+  const { id } = context.query;
+
+  try {
+    const res = await fetch(`https://rickandmortyapi.com/api/character/${id}`);
+    const character = await res.json();
+
+    return {
+      props: {
+        character,
+      },
+    };
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    return {
+      props: {
+        character: null,
+      },
+    };
+  }
+}
 
 export default CharacterDetailPage;

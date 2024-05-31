@@ -1,27 +1,15 @@
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  background-color: #333;
-  color: white;
-  z-index: 999; /* Ensure the menu is on top */
+.container {
+  position: relative;
+  z-index: 0;
 }
 
-.menu {
-  position: absolute;
-  background: #444;
-  border-radius: 50%;
-  overflow: hidden;
-  z-index: 1000; /* Set a higher z-index */
-}
-
-.main {
-  height: 100vh;
+.content {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 1; /* Ensure content is behind the menu */
+  height: 100vh;
+  text-align: center;
 }
 
 .mark {
@@ -32,6 +20,15 @@
   transform: translate(-50%, -50%);
   font-weight: 100;
   color: rgba(0, 0, 0, 0.035);
+  z-index: 0;
+}
+
+.main {
+  z-index: 1;
+}
+
+.body {
+  z-index: 1;
 }
 
 .introLine {
@@ -43,32 +40,51 @@
   z-index: 1;
 }
 
-.introLine:nth-of-type(5), 
-.introLine:nth-of-type(6) {
-  display: inline-flex;
-}
-
-.introLine:nth-of-type(6) {
-  right: -40px;
-  position: relative;
-}
-
 .introLine p {
   margin: 0;
 }
 
 .contact {
-  display: flex; /* Use flexbox */
-  gap: 50px; /* Add space between links */
+  display: flex;
+  flex-direction: row; 
+  align-items: center;
+  justify-content: center; /* Added to center the items horizontally */
+  gap: 20px;
+  z-index: 1;
 }
 
 .contact a {
-  color: #333; /* Link color */
+  color: #000;
+  font-size: 30px;
   text-decoration: none; 
   font-weight: bold; 
-  transition: color 0.3s ease; /* Smooth color transition */
+  transition: color 0.3s ease;
+  z-index: 1;
 }
 
 .contact a:hover {
-  color: #666; /* Change color on hover */
+  color: #666;
+}
+
+.backButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 40px;
+  background: #444;
+  border-radius: 50px;
+  transition: width 0.75s, height 0.75s, top 0.75s, right 0.75s;
+  z-index: 10; /* Ensure it stays on top */
+}
+
+
+.backButtonLink {
+  color: white;
+  font-size: 10px;
+  text-decoration: none;
+  font-weight: bold;
 }

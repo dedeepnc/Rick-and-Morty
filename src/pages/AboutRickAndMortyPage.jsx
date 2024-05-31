@@ -6,6 +6,8 @@ import headerStyles from '../components/Header/style.module.scss';
 import pageStyles from '../components/AboutRickNMorty.module.scss'; // Updated import
 import axios from 'axios';
 import Footer from '../components/Footer/Footer';
+import Link from 'next/link';
+import Image from 'next/image';
 
 const AboutRickAndMortyPage = () => {
   const [characters, setCharacters] = useState([]);
@@ -71,7 +73,17 @@ const AboutRickAndMortyPage = () => {
       <main className={pageStyles.main}>
         <section className={pageStyles.section}>
           <h2>Introduction</h2>
-          <p>Rick and Morty is an American animated television series created by Justin Roiland and Dan Harmon. The show follows the misadventures of cynical mad scientist Rick Sanchez and his good-hearted but fretful grandson Morty Smith, who split their time between domestic life and interdimensional adventures.</p>
+          <div className={pageStyles.centerContent}>
+            <Image
+              src="https://www.freepnglogos.com/uploads/rick-and-morty-png/rick-and-morty-portal-shoes-white-clothing-zavvi-23.png"
+              alt="Rick and Morty Portal"
+              width={550}
+              height={350}
+            />
+          </div>
+          <p>
+              Rick and Morty is an American animated television series created by Justin Roiland and Dan Harmon. The show follows the misadventures of cynical mad scientist Rick Sanchez and his good-hearted but fretful grandson Morty Smith, who split their time between domestic life and interdimensional adventures.
+            </p>
         </section>
         <section className={pageStyles.section}>
           <h2>Plot</h2>
@@ -96,7 +108,12 @@ const AboutRickAndMortyPage = () => {
         </section>
         <section className={pageStyles.section}>
           <h2>References</h2>
-          <p>Information sourced from <a href="https://en.wikipedia.org/wiki/Rick_and_Morty">Wikipedia</a>.</p>
+          <p>
+            Information sourced from 
+            <Link href="https://en.wikipedia.org/wiki/Rick_and_Morty" legacyBehavior>
+              <a target="_blank" rel="noopener noreferrer">Wikipedia</a>
+            </Link>.
+          </p>
         </section>
       </main>
       <Footer />

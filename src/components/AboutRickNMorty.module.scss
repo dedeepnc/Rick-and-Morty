@@ -37,8 +37,14 @@
         &:hover {
           text-decoration: underline;
         }
+      
       }
-
+      .centerContent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
       .character {
         display: flex;
         align-items: center;
