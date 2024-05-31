@@ -1,13 +1,8 @@
-import { Inter } from 'next/font/google';
-import '../styles/globals.css';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Script from 'next/script';
 
-
-const inter = Inter({ subsets: ['latin'] });
-
-const GA_MEASUREMENT_ID = 'G-WJ95KZGWL8';
+const GA_MEASUREMENT_ID = 'G-FFDC17DYLF';
 
 const handleRouteChange = (url) => {
   window.gtag('config', GA_MEASUREMENT_ID, {
@@ -52,4 +47,3 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp;
-
