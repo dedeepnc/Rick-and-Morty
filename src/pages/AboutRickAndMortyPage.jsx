@@ -5,6 +5,7 @@ import Button from '../components/Header/Button';
 import headerStyles from '../components/Header/style.module.scss';
 import pageStyles from '../components/AboutRickNMorty.module.scss'; // Updated import
 import axios from 'axios';
+import Footer from '../components/Footer/Footer';
 
 const AboutRickAndMortyPage = () => {
   const [characters, setCharacters] = useState([]);
@@ -98,6 +99,7 @@ const AboutRickAndMortyPage = () => {
           <p>Information sourced from <a href="https://en.wikipedia.org/wiki/Rick_and_Morty">Wikipedia</a>.</p>
         </section>
       </main>
+      <Footer />
     </div>
   );
 };

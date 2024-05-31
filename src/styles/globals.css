@@ -1,7 +1,47 @@
+:root {
+  --color1: hsla(355, 50%, 82%, 0.6); /* Lightened to pastel */
+  --color2: hsla(41, 70%, 94%, 0.6);
+  --color3: hsla(56, 70%, 90%, 0.6);
+  --color4: hsla(115, 70%, 81%, 0.6);
+  --color5: hsla(164, 70%, 81%, 0.6);
+  --color6: hsla(194, 70%, 81%, 0.6);
+  --color7: hsla(266, 70%, 94%, 0.6);
+  --color8: hsla(291, 70%, 94%, 0.6);
+  --color9: hsla(311, 70%, 97%, 0.6);
+  --color10: hsla(13, 70%, 92%, 0.6);
+  --color11: hsla(110, 70%, 80%, 0.6);
+  --color12: hsla(202, 70%, 95%, 0.6);
+  --font-family: "Poppins", system-ui;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  place-items: center;
+  padding: 2rem;
+  font-family: var(--font-family);
+  background: linear-gradient(45deg, var(--color1), var(--color2), var(--color3), var(--color4), var(--color5), var(--color6), var(--color7), var(--color8), var(--color9), var(--color10), var(--color11), var(--color12));
+  background-size: 300% 300%;
+  animation: gradientAnimation 15s ease infinite;
 }

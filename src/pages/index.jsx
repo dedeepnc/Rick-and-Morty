@@ -1,10 +1,10 @@
-// CombinedComponent.js
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Button from '../components/Header/Button';
 import styles from '../components/Header/style.module.scss';
 import Nav from '../components/Header/Nav';
-import Link from 'next/link';
+import blobStyles from '../components/index.module.scss'; 
+import Footer from '../components/Footer/Footer';
 
 const menu = {
     open: {
@@ -34,11 +34,14 @@ const HomePage = () => {
         height: '100vh',
         textAlign: 'center',
         fontFamily: 'get_schwifty, sans-serif',
-        cursor: 'url("https://blog.olivierlarose.com/assets/images/cursor.png") 24 24, auto', // Blend mode cursor effect
     };
 
     return (
-        <div>
+        <div className={blobStyles.blobWrapper}> 
+            <div className={`${blobStyles.blob} ${blobStyles.blob1}`}></div>
+            <div className={`${blobStyles.blob} ${blobStyles.blob2}`}></div>
+            <div className={`${blobStyles.blob} ${blobStyles.blob3}`}></div>
+            <div className={`${blobStyles.blob} ${blobStyles.blob4}`}></div>
             <div className={styles.header}>
                 <motion.div
                     className={styles.menu}
@@ -59,6 +62,7 @@ const HomePage = () => {
                     style={{ maxWidth: '80%', height: 'auto' }}
                 />
             </div>
+            <Footer />
         </div>
     );
 };

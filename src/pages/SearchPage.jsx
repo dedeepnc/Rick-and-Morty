@@ -5,6 +5,7 @@ import Nav from '../components/Header/Nav';
 import Button from '../components/Header/Button';
 import headerStyles from '../components/Header/style.module.scss';
 import styles from '../components/SearchPage.module.scss';
+import Footer from '../components/Footer/Footer'; 
 import Link from 'next/link';
 
 const SearchPage = () => {
@@ -105,6 +106,7 @@ const SearchPage = () => {
           </div>
         ))}
       </div>
+      <Footer /> 
     </div>
   );
 };

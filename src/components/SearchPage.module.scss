@@ -15,11 +15,14 @@
   overflow: hidden;
 }
 
+/* Container for the search input and button */
 .searchContainer {
+  padding: 60px;
   text-align: center;
   margin: 20px;
 }
 
+/* Styles for the search input field */
 .searchInput {
   padding: 10px;
   width: 300px;
@@ -27,8 +30,15 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-right: 10px;
+  transition: all 0.3s ease;
 }
 
+.searchInput:focus {
+  border-color: #333;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for the search button */
 .searchButton {
   padding: 10px 20px;
   font-size: 16px;
@@ -37,19 +47,24 @@
   color: white;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .searchButton:hover {
   background-color: #555;
+  transform: scale(1.05);
 }
 
+/* Container for the search results */
 .results {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 20px;
+  animation: fadeIn 0.5s ease;
 }
 
+/* Common styles for character, episode, and location cards */
 .characterCard, .episodeCard, .locationCard {
   width: 200px;
   margin: 10px;
@@ -58,24 +73,35 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
   background-color: #f9f9f9;
-  transition: transform 0.2s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: slideIn 0.5s ease;
 }
 
 .characterCard:hover, .episodeCard:hover, .locationCard:hover {
   transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+/* Styles for images in the cards */
 .characterImage, .episodeImage, .locationImage {
   width: 100%;
   border-radius: 10px;
+  transition: transform 0.3s ease;
 }
 
+.characterImage:hover, .episodeImage:hover, .locationImage:hover {
+  transform: scale(1.1);
+}
+
+/* Container for tabs */
 .tabs {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+  animation: fadeIn 0.5s ease;
 }
 
+/* Common styles for tabs */
 .tab {
   padding: 10px 20px;
   margin: 0 5px;
@@ -83,19 +109,51 @@
   background-color: #333;
   color: white;
   border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
+.tab:hover {
+  background-color: #444;
+  transform: scale(1.05);
+}
+
+/* Active tab style */
 .tab.active {
   background-color: #555;
 }
 
+/* Styles for "view more" links */
 .viewMore {
   display: block;
   margin-top: 10px;
   color: #0070f3;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .viewMore:hover {
+  color: #005bb5;
   text-decoration: underline;
+}
+
+/* Keyframe animation for fade in effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Keyframe animation for slide in effect */
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

@@ -1,10 +1,10 @@
-import { useState, useRef, useEffect } from 'react'; 
+import { useState } from 'react'; 
 import { motion, AnimatePresence } from 'framer-motion';
 import Nav from '../components/Header/Nav';
 import Button from '../components/Header/Button';
 import headerStyles from '../components/Header/style.module.scss';
 import contactStyles from '../components/contact.module.scss'; 
-import { disperse } from '../components/anim';
+import Footer from '../components/Footer/Footer';
 import Link from 'next/link';
 
 const ContactPage = () => {
@@ -28,7 +28,8 @@ const ContactPage = () => {
   };
 
   return (
-    <div>
+    <div className={contactStyles.container}>
+      {/* Menu */}
       <div className={headerStyles.header}>
         <motion.div
           className={headerStyles.menu}
@@ -42,73 +43,33 @@ const ContactPage = () => {
         </motion.div>
         <Button isActive={isActive} toggleMenu={() => { setIsActive(!isActive) }} />
       </div>
-      <main className={contactStyles.main}>
-        <div className={contactStyles.body}>
-          <div className={contactStyles.introLine}>
-            <p>Phonnatcha</p> 
-            <p>Chantaro</p>
+
+      {/* Content */}
+      <div className={contactStyles.content}>
+        <div className={contactStyles.mark}>CONTACT</div>
+        <main className={contactStyles.main}>
+          <div className={contactStyles.body}>
+            <div className={contactStyles.introLine}>
+              <p>Phonnatcha</p> 
+              <p>Chantaro</p>
+            </div>
+            <div className={contactStyles.introLine}>
+              <p>Website</p>
+            </div>
+            <div className={contactStyles.introLine}>
+              <p>development</p>
+              <p>Student</p>
+            </div>
+            <div className={contactStyles.contact}>
+              <a href="mailto:dedee.pnc@gmail.com" target="_blank">→ Email</a>
+              <a href="https://github.com/yourgithubusername" target="_blank">→ Github</a>
+            </div>
           </div>
-          <div className={contactStyles.introLine}>
-            <p>Website</p>
-          </div>
-          <div className={contactStyles.introLine}>
-            <p>development</p>
-            <p>Student</p>
-          </div>
-          <TextDipserse setBackground={() => {}}>
-            <p>+61415517591</p>
-          </TextDipserse>
-          <TextDipserse setBackground={() => {}}>
-            <a href="mailto:dedee.pnc@gmail.com" target="_blank">→Email</a>
-          </TextDipserse>
-          <TextDipserse setBackground={() => {}}>
-            <a href="https://github.com/yourgithubusername" target="_blank">→Github</a>
-          </TextDipserse>
-        </div>
-      </main>
+        </main>
+      </div>
+      <Footer />
     </div>
   );
 };
-
-function TextDipserse(props) {
-  const { children, setBackground } = props;
-  const [isAnimated, setIsAnimated] = useState(false);
-
-  const getChars = (element) => {
-    let chars = [];
-    if(children.length){
-      children.forEach( (el, i) => {
-        chars.push(splitWord(el.props.children, i))
-      })
-    }
-    else{
-      chars.push(splitWord(element.props.children, 1))
-    }
-    return chars;
-  }
-
-  const splitWord = (word, indexOfWord) => {
-    let chars = [];
-    word.split("").forEach( (char, i) => {
-      chars.push(<motion.span custom={indexOfWord * i} variants={disperse} animate={isAnimated ? "open" : "closed"} key={char + i}>{char}</motion.span>)
-    })
-    return chars;
-  }
-
-  const manageMouseEnter = () => {
-    setBackground(true)
-    setIsAnimated(true);
-  }
-  const manageMouseLeave = () => {
-    setBackground(false)
-    setIsAnimated(false);
-  }
-
-  return (
-    <div style={{cursor: "pointer"}} onMouseEnter={() => {manageMouseEnter()}} onMouseLeave={() => {manageMouseLeave(false)}} className={contactStyles.introLine}>
-      { getChars(children) }
-    </div>
-  )
-}
 
 export default ContactPage;

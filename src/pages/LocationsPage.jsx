@@ -4,6 +4,7 @@ import Nav from '../components/Header/Nav';
 import Button from '../components/Header/Button';
 import styles from '../components/Header/style.module.scss';
 import pageStyles from '../components/LocationsPage.module.scss';
+import Footer from '../components/Footer/Footer';
 
 const LocationsPage = () => {
   const [locations, setLocations] = useState([]);
@@ -74,6 +75,7 @@ const LocationsPage = () => {
           <button onClick={() => setPage(prev => prev + 1)}>Next</button>
         </div>
       </div>
+      <Footer /> 
     </div>
   );
 };

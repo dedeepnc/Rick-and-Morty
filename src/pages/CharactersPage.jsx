@@ -5,6 +5,7 @@ import Button from '../components/Header/Button';
 import headerStyles from '../components/Header/style.module.scss';
 import styles from '../components/characters.module.scss';
 import Link from 'next/link';
+import Footer from '../components/Footer/Footer';
 
 const CharactersPage = () => {
   const [characters, setCharacters] = useState([]);
@@ -52,7 +53,7 @@ const CharactersPage = () => {
         </motion.div>
         <Button isActive={isActive} toggleMenu={() => { setIsActive(!isActive) }} />
       </div>
-      <h1>Rick and Morty Characters</h1>
+      <h1 className={styles.h1}>Rick and Morty Characters</h1>
       <div className={styles.main}>
         <div className={styles.characterGrid}>
           {characters.map(character => (
@@ -74,6 +75,7 @@ const CharactersPage = () => {
         <button onClick={() => setPage(prev => Math.max(prev - 1, 1))} disabled={page === 1}>Previous</button>
         <button onClick={() => setPage(prev => prev + 1)}>Next</button>
       </div>
+      <Footer />
     </div>
   );
 };

@@ -1,32 +1,35 @@
 export const links = [
     {
         title: "Home",
-        href: "/src/pages/index.jsx"
+        href: "index"
     },
     {
         title: "About",
-        href: "/src/pages/about.jsx"
+        href: "AboutRickAndMortyPage"
     },
     {
         title: "Characters",
-        href: "/src/pages/characters.jsx"
+        href: "CharactersPage"
     },
     {
         title: "Locations",
-        href: "/src/pages/LocationsPage.jsx"
+        href: "LocationsPage"
     },
     {
         title: "Episodes",
-        href: "/src/pages/Episodes.jsx"
-    }
-]
-export const footerLinks = [
-    {
-        title: "GitHub",
-        href: "https://github.com/dedeepnc" // Corrected URL format
+        href: "EpisodesPage"
     },
     {
-        title: "LinkedIn",
-        href: "https://www.linkedin.com/in/phonnatcha-chantaro-a22b13251/" // Corrected URL format
+        title: "Search",
+        href: "SearchPage"
+    },
+    {
+        title: "Contact",
+        href: "ContactPage"
     }
-];
+    ,
+    {
+        title: "Privacy Policy",
+        href: "PrivacyPolicyPage"
+    }
+]

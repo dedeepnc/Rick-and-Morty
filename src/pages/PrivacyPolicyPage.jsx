@@ -1,12 +1,14 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Nav from '../components/Header/Nav';
 import Button from '../components/Header/Button';
-import styles from '../components/Header/style.module.scss';
+import HeaderStyles from '../components/Header/style.module.scss';
+import Styles from '../components/PrivacyPolicyPage.module.scss'; 
 import { motion, AnimatePresence } from 'framer-motion';
+import Footer from '../components/Footer/Footer'; 
 
 const PrivacyPolicyPage = () => {
-  const [isActive, setIsActive] = useState(false); // Define isActive state here
+  const [isActive, setIsActive] = useState(false);
 
   const menu = {
     open: {
@@ -27,9 +29,9 @@ const PrivacyPolicyPage = () => {
 
   return (
     <div>
-      <div className={styles.header}>
+      <div className={HeaderStyles.header}>
         <motion.div
-          className={styles.menu}
+          className={HeaderStyles.menu}
           variants={menu}
           animate={isActive ? "open" : "closed"}
           initial="closed"
@@ -40,13 +42,22 @@ const PrivacyPolicyPage = () => {
         </motion.div>
         <Button isActive={isActive} toggleMenu={() => { setIsActive(!isActive) }} />
       </div>
-      <h1>Privacy Policy</h1>
-      <p>This is the privacy policy content.</p>
-      <Link href="/" passHref>
-        <div>
-          Back to Home
-        </div>
-      </Link>
+      <div className={Styles.main}>
+        <h1>Privacy Policy</h1>
+        <p>
+          This Privacy Policy applies to the website maintained by Phonnatcha Chantaro for development learning purposes.
+        </p>
+        <p>
+          Phonnatcha Chantaro is a student of web development and has created this website as part of her educational journey.
+        </p>
+        <p>
+          The website collects and uses personal information only for the purpose of providing information about the "Rick and Morty" series. The information is sourced from the Rick and Morty API and Wikipedia.
+        </p>
+        <p>
+          Contact Phonnatcha Chantaro at +61415517591 or <a href="mailto:dedee.pnc@gmail.com" target="_blank" className={Styles.link}>dedee.pnc@gmail.com</a> for any inquiries or concerns regarding the privacy policy.
+        </p>
+      </div>
+      <Footer /> 
     </div>
   );
 };

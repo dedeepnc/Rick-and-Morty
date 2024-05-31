@@ -1,0 +1,28 @@
+.not-found-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.content {
+  text-align: center;
+}
+
+.not-found-container h1 {
+  font-size: 3em;
+  
+}
+
+.not-found-container p {
+  font-size: 1.2em;
+}
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #b7e4f999;
+}
+
