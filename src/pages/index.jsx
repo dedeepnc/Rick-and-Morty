@@ -4,7 +4,7 @@ import Button from '../components/Header/Button';
 import styles from '../components/Header/style.module.scss';
 import Nav from '../components/Header/Nav';
 import blobStyles from '../components/index.module.scss'; 
-import Footer from '../components/Footer/Footer';
+import Footer from '../components/footer/footer'; 
 import Image from 'next/image'; // Import the Image component from Next.js
 
 const menu = {

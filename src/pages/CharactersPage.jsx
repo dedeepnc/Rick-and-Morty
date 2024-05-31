@@ -5,7 +5,7 @@ import Button from '../components/Header/Button';
 import headerStyles from '../components/Header/style.module.scss';
 import styles from '../components/characters.module.scss';
 import Link from 'next/link';
-import Footer from '../components/Footer/Footer';
+import Footer from '../components/footer/footer'; 
 
 const CharactersPage = () => {
   const [characters, setCharacters] = useState([]);

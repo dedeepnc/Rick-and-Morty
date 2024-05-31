@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import contactStyles from '../components/contact.module.scss'; 
-import Footer from '../components/Footer/Footer';
+import Footer from '../components/footer/footer'; 
 
 const ContactPage = () => {
   return (

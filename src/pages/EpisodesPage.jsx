@@ -4,7 +4,7 @@ import Nav from '../components/Header/Nav';
 import Button from '../components/Header/Button';
 import headerStyles from '../components/Header/style.module.scss';
 import pageStyles from '../components/EpisodesPage.module.scss';
-import Footer from '../components/Footer/Footer';
+import Footer from '../components/footer/footer'; 
 
 const EpisodesPage = () => {
   const [episodes, setEpisodes] = useState([]);

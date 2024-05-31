@@ -5,7 +5,7 @@ import Button from '../components/Header/Button';
 import HeaderStyles from '../components/Header/style.module.scss';
 import Styles from '../components/PrivacyPolicyPage.module.scss'; 
 import { motion, AnimatePresence } from 'framer-motion';
-import Footer from '../components/Footer/Footer'; 
+import Footer from '../components/footer/footer'; 
 
 const PrivacyPolicyPage = () => {
   const [isActive, setIsActive] = useState(false);
