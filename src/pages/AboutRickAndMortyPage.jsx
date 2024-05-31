@@ -5,7 +5,7 @@ import Button from '../components/Header/Button';
 import headerStyles from '../components/Header/style.module.scss';
 import pageStyles from '../components/AboutRickNMorty.module.scss';
 import axios from 'axios';
-import Footer from '../components/Footer/Footer'; // Ensure the path and casing match exactly
+import Footer from '../components/Footer/Footer'; 
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -36,9 +36,7 @@ const AboutRickAndMortyPage = () => {
         const characterNames = ['Rick Sanchez', 'Morty Smith', 'Summer Smith', 'Beth Smith', 'Jerry Smith'];
         const promises = characterNames.map(name =>
           axios.get('https://rickandmortyapi.com/api/character', {
-            params: {
-              name
-            }
+            params: { name }
           })
         );
         const responses = await Promise.all(promises);
@@ -91,7 +89,7 @@ const AboutRickAndMortyPage = () => {
         </section>
         <section className={pageStyles.section}>
           <h2>Characters</h2>
-          {characters.map((character) => (
+          {characters && characters.length > 0 && characters.map((character) => (
             <div key={character.id} className={pageStyles.character}>
               <Image src={character.image} alt={character.name} width={200} height={200} className={pageStyles.characterImage} />
               <div className={pageStyles.characterInfo}>
