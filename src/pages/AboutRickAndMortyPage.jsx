@@ -40,7 +40,10 @@ const AboutRickAndMortyPage = () => {
           })
         );
         const responses = await Promise.all(promises);
-        const charactersData = responses.map(response => response.data.results[0]);
+        const charactersData = responses.map(response => {
+          console.log(response.data.results[0]); // Log each character's data
+          return response.data.results[0];
+        });
         setCharacters(charactersData);
       } catch (error) {
         console.error('Error fetching characters:', error);
@@ -91,7 +94,11 @@ const AboutRickAndMortyPage = () => {
           <h2>Characters</h2>
           {characters && characters.length > 0 && characters.map((character) => (
             <div key={character.id} className={pageStyles.character}>
-              <Image src={character.image} alt={character.name} width={200} height={200} className={pageStyles.characterImage} />
+              {character.image ? (
+                <Image src={character.image} alt={character.name} width={200} height={200} className={pageStyles.characterImage} />
+              ) : (
+                <div className={pageStyles.noImage}>Image not available</div>
+              )}
               <div className={pageStyles.characterInfo}>
                 <h3>{character.name}</h3>
                 <p>{character.status} - {character.species}</p>
