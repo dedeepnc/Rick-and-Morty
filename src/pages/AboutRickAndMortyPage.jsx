@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Nav from '../components/Header/Nav';
 import Button from '../components/Header/Button';
 import headerStyles from '../components/Header/style.module.scss';
-import pageStyles from '../components/AboutRickNMorty.module.scss'; // Updated import
+import pageStyles from '../components/AboutRickNMorty.module.scss';
 import axios from 'axios';
 import Footer from '../components/Footer/Footer';
 import Link from 'next/link';
@@ -82,18 +82,18 @@ const AboutRickAndMortyPage = () => {
             />
           </div>
           <p>
-              Rick and Morty is an American animated television series created by Justin Roiland and Dan Harmon. The show follows the misadventures of cynical mad scientist Rick Sanchez and his good-hearted but fretful grandson Morty Smith, who split their time between domestic life and interdimensional adventures.
-            </p>
+            Rick and Morty is an American animated television series created by Justin Roiland and Dan Harmon. The show follows the misadventures of cynical mad scientist Rick Sanchez and his good-hearted but fretful grandson Morty Smith, who split their time between domestic life and interdimensional adventures.
+          </p>
         </section>
         <section className={pageStyles.section}>
           <h2>Plot</h2>
-          <p>The series centers on the Smith family, which consists of parents Jerry and Beth, their children Summer and Morty, and Beth's father, Rick Sanchez, who lives with them as a guest. According to Justin Roiland, the family lives outside of Seattle, Washington. The adventures of Rick and Morty, however, take place across an infinite number of realities, with the characters traveling to other planets and dimensions through portals and Rick's flying saucer.</p>
+          <p>The series centers on the Smith family, which consists of parents Jerry and Beth, their children Summer and Morty, and Beth&apos;s father, Rick Sanchez, who lives with them as a guest. According to Justin Roiland, the family lives outside of Seattle, Washington. The adventures of Rick and Morty, however, take place across an infinite number of realities, with the characters traveling to other planets and dimensions through portals and Rick&apos;s flying saucer.</p>
         </section>
         <section className={pageStyles.section}>
           <h2>Characters</h2>
           {characters.map((character) => (
             <div key={character.id} className={pageStyles.character}>
-              <img src={character.image} alt={character.name} className={pageStyles.characterImage} />
+              <Image src={character.image} alt={character.name} width={200} height={200} className={pageStyles.characterImage} />
               <div className={pageStyles.characterInfo}>
                 <h3>{character.name}</h3>
                 <p>{character.status} - {character.species}</p>

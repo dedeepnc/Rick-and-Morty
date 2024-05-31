@@ -51,7 +51,7 @@ const PrivacyPolicyPage = () => {
           Phonnatcha Chantaro is a student of web development and has created this website as part of her educational journey.
         </p>
         <p>
-          The website collects and uses personal information only for the purpose of providing information about the "Rick and Morty" series. The information is sourced from the Rick and Morty API and Wikipedia.
+          The website collects and uses personal information only for the purpose of providing information about the &quot;Rick and Morty&quot; series. The information is sourced from the Rick and Morty API and Wikipedia.
         </p>
         <p>
           Contact Phonnatcha Chantaro at +61415517591 or <a href="mailto:dedee.pnc@gmail.com" target="_blank" className={Styles.link}>dedee.pnc@gmail.com</a> for any inquiries or concerns regarding the privacy policy.

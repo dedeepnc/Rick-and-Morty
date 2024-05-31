@@ -35,7 +35,7 @@ const NotFound = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
         >
-          Sorry, the page you're looking for does not exist.
+          Sorry, the page you&apos;re looking for does not exist.
         </motion.p>
       </motion.div>
     </motion.div>
