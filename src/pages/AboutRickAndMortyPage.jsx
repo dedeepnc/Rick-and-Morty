@@ -5,7 +5,7 @@ import Button from '../components/Header/Button';
 import headerStyles from '../components/Header/style.module.scss';
 import pageStyles from '../components/AboutRickNMorty.module.scss';
 import axios from 'axios';
-import Footer from '../components/footer/footer'; 
+import Footer from '../components/Footer/Footer'; // Ensure the path and casing match exactly
 import Link from 'next/link';
 import Image from 'next/image';
 
