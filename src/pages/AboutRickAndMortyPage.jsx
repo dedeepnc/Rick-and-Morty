@@ -116,7 +116,13 @@ const AboutRickAndMortyPage = () => {
           <p>
             Information sourced from 
             <Link href="https://en.wikipedia.org/wiki/Rick_and_Morty" legacyBehavior>
-              <a target="_blank" rel="noopener noreferrer">Wikipedia</a>
+              <a target="_blank" rel="noopener noreferrer"> Wikipedia</a>
+            </Link>.
+          </p>
+          <p>
+            API : 
+            <Link href="https://rickandmortyapi.com/" legacyBehavior>
+              <a target="_blank" rel="noopener noreferrer">The Rick and Morty API</a>
             </Link>.
           </p>
         </section>
