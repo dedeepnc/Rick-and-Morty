@@ -1,0 +1,25 @@
+@font-face {
+  font-family: 'Get Schwifty';
+  src: url('/fonts/Get-Schwifty.ttf') format('truetype');
+}
+
+.logo {
+  position: fixed;
+  top: 40px;
+  left: 50px;
+  cursor: pointer;
+  font-size: 35px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #69c8ecff; /* Adjust color as needed */
+  z-index: 1000; /* Ensure it is above other elements */
+  font-family: 'Get Schwifty', sans-serif;
+
+  &:hover {
+    text-shadow: 
+      -1px -1px 0 #CBF5F0,  
+       1px -1px 0 #CBF5F0,
+      -1px  1px 0 #CBF5F0,
+       1px  1px 0 #CBF5F0;
+  }
+}
