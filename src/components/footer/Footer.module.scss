@@ -1,6 +1,8 @@
 @font-face {
   font-family: 'Get Schwifty';
-  src: url('/fonts/Get-Schwifty.ttf') format('truetype');
+  src: url('/fonts/Get-Schwifty.woff2') format('woff2'),
+       url('/fonts/Get-Schwifty.woff') format('woff'),
+       url('/fonts/Get-Schwifty.ttf') format('truetype');
 }
 
 .logo {
