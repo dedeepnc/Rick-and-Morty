@@ -66,8 +66,9 @@ const HomePage = () => {
                     <Image
                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Rick_and_Morty.svg/1600px-Rick_and_Morty.svg.png"
                         alt="Rick and Morty"
-                        width={950}
-                        height={350} 
+                        layout="responsive"
+                        width={1600}
+                        height={900}
                     />
                 </div>
                 <Footer />
