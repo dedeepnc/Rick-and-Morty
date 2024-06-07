@@ -1,21 +1,16 @@
-@font-face {
-  font-family: 'Get Schwifty';
-  src: url('/fonts/Get-Schwifty.woff2') format('woff2'),
-       url('/fonts/Get-Schwifty.woff') format('woff'),
-       url('/fonts/Get-Schwifty.ttf') format('truetype');
-}
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
 .logo {
   position: fixed;
   top: 40px;
   left: 50px;
   cursor: pointer;
-  font-size: 35px;
+  font-size: 25px;
   font-weight: bold;
   text-decoration: none;
   color: #69c8ecff; /* Adjust color as needed */
   z-index: 1000; /* Ensure it is above other elements */
-  font-family: 'Get Schwifty', sans-serif;
+  font-family: 'Permanent Marker', sans-serif;
 
   &:hover {
     text-shadow: 

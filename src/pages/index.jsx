@@ -5,7 +5,8 @@ import styles from '../components/Header/style.module.scss';
 import Nav from '../components/Header/Nav';
 import blobStyles from '../components/index.module.scss'; 
 import Footer from '../components/footer/footer'; 
-import Image from 'next/image'; // Import the Image component from Next.js
+import Image from 'next/image'; 
+import Head from 'next/head'; 
 
 const menu = {
     open: {
@@ -34,38 +35,44 @@ const HomePage = () => {
         alignItems: 'center',
         height: '100vh',
         textAlign: 'center',
-        fontFamily: 'get_schwifty, sans-serif',
     };
 
     return (
-        <div className={blobStyles.blobWrapper}> 
-            <div className={`${blobStyles.blob} ${blobStyles.blob1}`}></div>
-            <div className={`${blobStyles.blob} ${blobStyles.blob2}`}></div>
-            <div className={`${blobStyles.blob} ${blobStyles.blob3}`}></div>
-            <div className={`${blobStyles.blob} ${blobStyles.blob4}`}></div>
-            <div className={styles.header}>
-                <motion.div
-                    className={styles.menu}
-                    variants={menu}
-                    animate={isActive ? "open" : "closed"}
-                    initial="closed"
-                >
-                    <AnimatePresence>
-                        {isActive && <Nav />}
-                    </AnimatePresence>
-                </motion.div>
-                <Button isActive={isActive} toggleMenu={() => { setIsActive(!isActive) }} />
+        <>
+            <Head>
+                <title>Rick and Morty</title>
+                <meta name="description" content="Rick and Morty fan site" />
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
+            <div className={blobStyles.blobWrapper}> 
+                <div className={`${blobStyles.blob} ${blobStyles.blob1}`}></div>
+                <div className={`${blobStyles.blob} ${blobStyles.blob2}`}></div>
+                <div className={`${blobStyles.blob} ${blobStyles.blob3}`}></div>
+                <div className={`${blobStyles.blob} ${blobStyles.blob4}`}></div>
+                <div className={styles.header}>
+                    <motion.div
+                        className={styles.menu}
+                        variants={menu}
+                        animate={isActive ? "open" : "closed"}
+                        initial="closed"
+                    >
+                        <AnimatePresence>
+                            {isActive && <Nav />}
+                        </AnimatePresence>
+                    </motion.div>
+                    <Button isActive={isActive} toggleMenu={() => { setIsActive(!isActive) }} />
+                </div>
+                <div style={containerStyle}>
+                    <Image
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Rick_and_Morty.svg/1600px-Rick_and_Morty.svg.png"
+                        alt="Rick and Morty"
+                        width={950}
+                        height={350} 
+                    />
+                </div>
+                <Footer />
             </div>
-            <div style={containerStyle}>
-                <Image
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Rick_and_Morty.svg/1600px-Rick_and_Morty.svg.png"
-                    alt="Rick and Morty"
-                    width={950}
-                    height={350} 
-                />
-            </div>
-            <Footer />
-        </div>
+        </>
     );
 };
 
