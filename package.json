@@ -28,6 +28,7 @@
     "react-tsparticles": "^2.12.2"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^14.2.3",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
     "sass": "^1.76.0"

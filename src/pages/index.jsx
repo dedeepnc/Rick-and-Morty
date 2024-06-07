@@ -62,13 +62,11 @@ const HomePage = () => {
                     </motion.div>
                     <Button isActive={isActive} toggleMenu={() => { setIsActive(!isActive) }} />
                 </div>
-                <div style={containerStyle}>
-                    <Image
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Rick_and_Morty.svg/1600px-Rick_and_Morty.svg.png"
+                <div style={containerStyle}><Image
+                        src="/Rick_and_Morty.png" 
                         alt="Rick and Morty"
-                        layout="responsive"
-                        width={1600}
-                        height={900}
+                        width={950}
+                        height={350} 
                     />
                 </div>
                 <Footer />
